@@ -1,18 +1,52 @@
 {
-    "tasks": [
-        {
-            "id": 1,
-            "name": "Teste",
-            "description": "Teste desc",
-            "date": "28/06/2021",
-            "status": "IN-PROGRESS"
-        },
-        {
-            "id": 2,
-            "name": "Teste 2",
-            "description": "Teste desc 2",
-            "date": "27/06/2021",
-            "status": "COMPLETED"
-        }
-    ]
+  "tasks": [
+    {
+      "id": 905,
+      "name": "Fazer aplicativo 1234",
+      "description": "Criar um app em react native",
+      "date": "2021-06-28T18:24:36.785Z",
+      "status": "IN-PROGRESS",
+      "priority": "2"
+    },
+    {
+      "id": 306,
+      "name": "Teste 571",
+      "description": "Nsnqnsn",
+      "date": "2021-06-28T20:45:49.200Z",
+      "status": "IN-PROGRESS",
+      "priority": "0"
+    },
+    {
+      "id": 294,
+      "name": "Teste 123",
+      "description": "Jdnwns",
+      "date": "2021-06-28T20:47:11.064Z",
+      "status": "IN-PROGRESS",
+      "priority": "2"
+    },
+    {
+      "id": 846,
+      "name": "Teste",
+      "description": "Testemama",
+      "date": "2021-06-28T21:13:26.544Z",
+      "status": "IN-PROGRESS",
+      "priority": "0"
+    },
+    {
+      "id": 58,
+      "name": "Teste 6381",
+      "description": "Bxnwn",
+      "date": "2021-06-29T21:14:54.754Z",
+      "status": "IN-PROGRESS",
+      "priority": "0"
+    },
+    {
+      "id": 326,
+      "name": "Teste 5151",
+      "description": "Hsbwns",
+      "date": "2021-06-28T21:15:33.439Z",
+      "status": "IN-PROGRESS",
+      "priority": "0"
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { memo, ReactNode } from 'react';
 import { View } from 'react-native';
 
 import { 
@@ -10,28 +10,43 @@ import {
     TextTask,
     TextHour
 } from './styles';
+import { formatedHours } from '../../commons/utils';
 
 interface CardsDataProps {
-    children?: ReactNode;
-    data?: any;
+    data: any;
+    onPress: (item:any) => void;
 }
 
-const Cards: React.FC = ({ children,data } : CardsDataProps) => {
+const Cards = ({ data, onPress } : CardsDataProps) => {
+    
+    const renderPriority = (item:number) : String => {
+        switch(item){
+            case 0:
+                return "Baixa";
+            case 1:
+                return "Média";
+            case 2:
+                return "Alta";
+            default:
+                return "Alta";
+        };
+    };
+
     return (
-        <Container>
+        <Container onPress={() => onPress(data)}  key={data.id.toString()}>
             <ViewCardRight>
                 <Badge>
-                    <BadgeText>Alta</BadgeText>
+                    <BadgeText>{renderPriority(data.priority)}</BadgeText>
                 </Badge>
             </ViewCardRight>
             <ViewCardLeft>
-                <TextTask>Fazer café</TextTask>
+                <TextTask>{data.name}</TextTask>
             </ViewCardLeft>
             <ViewCardRight>
-                <TextHour>10:14</TextHour>
+                <TextHour>{formatedHours(data.date)}</TextHour>
             </ViewCardRight>
         </Container>
     );
 }
 
-export default Cards;
+export default memo(Cards);

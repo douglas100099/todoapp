@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/native'
 import { Colors } from '../../styles/theme'
 
-const Container = styled.View `
+const Container = styled.TouchableOpacity `
     height: 165px;
     padding: 5px;
     width: 100%;

@@ -6,7 +6,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
-    whitelist: ['bookmarks']
+    whitelist: ['taskreducer']
 };
 
 import { 
