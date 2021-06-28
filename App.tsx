@@ -1,21 +1,77 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+import * as Font from 'expo-font';
+import * as Updates from 'expo-updates';
+import { Asset } from 'expo-asset';
+
+import { Provider } from "react-redux";
+
+import { NavigationContainer } from '@react-navigation/native';
+import Route from './src/routes/route';
+
+import { store, persistor } from './src/redux/store/store'
+import { PersistGate } from 'redux-persist/integration/react';
+
+
+const App = () => {
+  const [assetsLoaded, setAssetsLoaded] = useState(false);
+  const [updateMsg, setUpdateMsg] = useState('');
+
+  const _loadResourcesAsync = async () => {
+    return Promise.all([
+      Asset.loadAsync([
+        require('./assets/images/logo.png')
+      ]),
+      Font.loadAsync({
+        'PopRegular': require('./assets/fonts/Poppins-Regular.ttf'),
+        'PopLight': require('./assets/fonts/Poppins-Light.ttf'),
+        'PopBold': require('./assets/fonts/Poppins-Bold.ttf'),
+        'PopMedium': require('./assets/fonts/Poppins-Medium.ttf'),
+      }),
+    ]);
+  };
+
+  // CHECK ATUALIZAÇÕES E CARREGA ASSETS E FONTS
+  const onLoad = async () => {
+    if (__DEV__) {
+      setUpdateMsg("Carregando");
+      _loadResourcesAsync().then(() => {
+        setAssetsLoaded(true);
+      });
+    } else {
+      try {
+        setUpdateMsg("Verificando atualizações");
+        const update = await Updates.checkForUpdateAsync();
+        if (update.isAvailable) {
+          setUpdateMsg("Baixando atualizações");
+          await Updates.fetchUpdateAsync();
+          await Updates.reloadAsync();
+        } else {
+          setUpdateMsg("Carregando");
+          _loadResourcesAsync().then(() => {
+            setAssetsLoaded(true);
+          });
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    assetsLoaded ?
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <NavigationContainer>
+            <Route />
+          </NavigationContainer>
+        </PersistGate>
+      </Provider>
+      :
+      <View />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
