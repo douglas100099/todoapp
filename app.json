@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#222A43"
-      }
+      },
+      "package": "com.myth.todo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
