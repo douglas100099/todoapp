@@ -4,7 +4,15 @@
             "id": 1,
             "name": "Teste",
             "description": "Teste desc",
+            "date": "28/06/2021",
             "status": "IN-PROGRESS"
+        },
+        {
+            "id": 2,
+            "name": "Teste 2",
+            "description": "Teste desc 2",
+            "date": "27/06/2021",
+            "status": "COMPLETED"
         }
     ]
 }

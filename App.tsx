@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import * as Font from 'expo-font';
@@ -19,11 +19,15 @@ const App = () => {
   const [assetsLoaded, setAssetsLoaded] = useState(false);
   const [updateMsg, setUpdateMsg] = useState('');
 
+  useEffect(() => {
+    onLoad();
+  }, []);
+
   const _loadResourcesAsync = async () => {
     return Promise.all([
-      Asset.loadAsync([
+      /*Asset.loadAsync([
         require('./assets/images/logo.png')
-      ]),
+      ]),*/
       Font.loadAsync({
         'PopRegular': require('./assets/fonts/Poppins-Regular.ttf'),
         'PopLight': require('./assets/fonts/Poppins-Light.ttf'),
@@ -65,6 +69,7 @@ const App = () => {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <NavigationContainer>
+            <StatusBar style='light' />
             <Route />
           </NavigationContainer>
         </PersistGate>

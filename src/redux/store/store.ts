@@ -9,10 +9,12 @@ const persistConfig = {
     whitelist: ['bookmarks']
 };
 
-//import { nameReducer } from './pathReducer';
+import { 
+    taskreducer
+ } from '../reducers/taskreducer';
 
 const rootReducer = combineReducers({
-    //booksReducer: persistReducer(persistConfig, booksReducer)
+    taskreducer: persistReducer(persistConfig, taskreducer)
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));
