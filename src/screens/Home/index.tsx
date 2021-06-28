@@ -4,9 +4,7 @@ import { Cards, FloatingButton, Header } from '../../components';
 import {
   Container,
   Title,
-  ViewHeader,
   ViewIcon,
-  Image,
   ViewBody,
   ViewTitle,
   Subtitle,
@@ -39,12 +37,6 @@ const Home = ({ navigation }: any) => {
       <Cards onPress={(data) => navigation.navigate('SelectedTask', { data: data })} data={item} />
     );
   };
-
-  /*const filterSearch = () => {
-    if (search.length > 0) {
-
-    };
-  };*/
 
   useEffect(() => {
     if(task.tasks){

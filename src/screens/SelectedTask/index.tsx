@@ -19,7 +19,7 @@ import {
 } from './styles';
 import { Colors } from '../../styles/theme';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
-import { addTask, removeTask, updateTask } from '../../redux/actions/taskactions';
+import { removeTask, updateTask } from '../../redux/actions/taskactions';
 import { Ionicons } from '@expo/vector-icons';
 import { formatedDateDays } from '../../commons/utils';
 

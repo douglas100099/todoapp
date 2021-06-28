@@ -23,7 +23,6 @@ import { formatedDateDays } from '../../commons/utils';
 
 const CreateTask = ({ navigation } : any) => {
   const dispatch = useDispatch();
-  const tasks = useSelector((state: RootStateOrAny) => state.taskreducer);
 
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState<any>('date');
