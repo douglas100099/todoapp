@@ -57,12 +57,6 @@ const CreateTask = ({ navigation } : any) => {
     showMode('date');
   };
 
-  useEffect(() => {
-    if(tasks.tasks && tasks.tasks.loadingAddTasks){
-      navigation.navigate.goBack();
-    };
-  }, [tasks.tasks]);
-
   return (
     <Container>
       <ViewInput>

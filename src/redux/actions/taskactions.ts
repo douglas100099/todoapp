@@ -1,13 +1,9 @@
 import React, { Dispatch } from 'react';
 import { api } from '../../services/api';
-import { store } from '../store/store';
 import {
     FETCH_TASKS,
     FETCH_TASKS_SUCCESS,
     FETCH_TASKS_FAILED,
-    ADD_TASKS_FAILED,
-    ADD_TASKS_SUCCESS,
-    DELETE_TASKS_SUCCESS
 } from '../store/types';
 
 
@@ -66,10 +62,7 @@ export const addTask = (data: any, date: Date, dispatch: Dispatch<any>) => {
         }
     } catch (error) {
         console.log(error);
-        dispatch({
-            type: ADD_TASKS_FAILED,
-            payload: error,
-        });
+        alert(error)
     }
 };
 
